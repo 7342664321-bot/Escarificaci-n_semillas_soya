@@ -1,0 +1,33 @@
+---
+title: "Introdución"
+---
+
+::: {style="text-align: justify;"}
+La germinación de semillas constituye una de las fases más importantes en el establecimiento de los cultivos, ya que determina la capacidad de emergencia, uniformidad y vigor inicial de las plántulas. Este proceso depende de diversos factores fisiológicos y ambientales que regulan la activación metabólica del embrión y el crecimiento inicial de la radícula. En especies leguminosas, la presencia de cubiertas seminales duras puede generar dormancia física, limitando la absorción de agua y reduciendo la velocidad y el porcentaje de germinación (Baskin & Baskin, 2014).
+
+En semillas de Soya (*Glycine max*), la impermeabilidad parcial de la testa puede afectar la germinación uniforme, especialmente cuando las semillas han sido almacenadas o presentan endurecimiento tegumentario. Frente a esta limitación, los tratamientos de escarificación representan una alternativa eficiente para favorecer la imbibición y activar el proceso germinativo. La escarificación mecánica permite debilitar físicamente la cubierta seminal mediante cortes o abrasiones; mientras que la escarificación térmica utiliza cambios bruscos de temperatura para modificar la permeabilidad de la testa. Asimismo, la escarificación química emplea sustancias oxidantes o corrosivas capaces de alterar las capas externas de la semilla y acelerar la absorción de agua (Copeland & McDonald, 2001).
+
+Diversos estudios han demostrado que los tratamientos pregerminativos pueden mejorar significativamente variables fisiológicas relacionadas con la germinación, tales como el porcentaje germinativo, el tiempo medio de germinación y la sincronización de emergencia de las plántulas (Finch-Savage & Leubner-Metzger, 2006). La rapidez y uniformidad en la germinación son características agronómicas importantes, debido a que favorecen un establecimiento homogéneo del cultivo y una mayor competitividad de las plántulas durante las primeras etapas de desarrollo.
+
+Por lo tanto, evaluar el efecto de diferentes métodos de escarificación sobre semillas de Soya resulta relevante desde el punto de vista fisiológico y productivo, ya que permite identificar tratamientos eficientes para optimizar el establecimiento del cultivo. En este contexto, el presente estudio tuvo como objetivo evaluar el efecto de diferentes métodos de escarificación sobre la germinación de semillas de Glycine max, mediante un Diseño de Bloques Completamente al Azar (DBCA), considerando variables relacionadas con la germinabilidad, el tiempo medio de germinación, la sincronización y el número de semillas germinadas.
+
+![](https://lasemanaentredosrios.com/wp-content/uploads/2018/10/Semillas-Soja-900x480.jpg)
+:::
+
+# OBJETIVOS
+
+## GENERAL
+
+Evaluar el efecto de diferentes métodos de escarificación sobre la germinación de semillas de Soya (Glycine max) bajo condiciones de laboratorio.
+
+## ESPECÍFICOS
+
+- Determinar el efecto de los métodos de escarificación sobre el porcentaje de germinación de semillas de Glycine max.
+
+- Evaluar el tiempo medio de germinación de semillas de Glycine max sometidas a diferentes tratamientos de escarificación.
+
+- Analizar el índice de sincronización de la germinación en semillas de Glycine max bajo distintos métodos de escarificación.
+
+- Comparar el número de semillas germinadas entre los tratamientos de escarificación evaluados.
+
+- Evaluar el efecto de los tratamientos de escarificación sobre la longitud de radícula como indicador de vigor de plántulas.

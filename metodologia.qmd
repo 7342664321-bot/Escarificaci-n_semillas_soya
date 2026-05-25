@@ -1,0 +1,103 @@
+---
+title: "Metodología"
+---
+
+# Materiales
+
+- Papel Toalla
+
+- Recipientes de plastico
+
+- Agua destilada
+
+- Guantes
+
+- Pinzas
+
+- Jeringa
+
+- Lija
+
+- Semilla de soya
+
+
+# Métodos
+
+Diseño experimental
+
+El experimento se estableció bajo un Diseño de Bloques Completamente al Azar (DBCA), con el objetivo de evaluar el efecto de diferentes métodos de escarificación sobre la germinación de semillas de Soya (Glycine max).
+
+| Tratamiento | Descripción                                                |
+| ----------- | ---------------------------------------------------------- |
+| T0          | Control (sin escarificación)                               |
+| T1          | Escarificación mecánica mediante lijado superficial         |
+| T2          | Escarificación térmica mediante inmersión en agua caliente |
+| T3          | Escarificación química mediante agua oxigenada             |
+
+Cada tratamiento estuvo conformado por cuatro repeticiones (bloques), constituyendo un total de 16 unidades experimentales. Cada unidad experimental estuvo integrada por 25 semillas, las cuales fueron colocadas en condiciones controladas para el proceso de germinación.
+
+Las evaluaciones se realizaron diariamente registrando el número de semillas germinadas, a partir de lo cual se calcularon los índices fisiológicos de germinación: semillas germinadas (GRS), porcentaje de germinación (GRP), tiempo medio de germinación (MGT) e índice de sincronización (SYN). Asimismo, se evaluó la longitud de radícula como indicador de vigor de plántulas.
+
+
+# Procedimiento experimental
+
+Generación de etiquetas
+
+En primer lugar, se generaron las etiquetas de identificación mediante el software R, las cuales fueron recortadas y colocadas en la parte superior de los recipientes plásticos, permitiendo la correcta identificación de cada unidad experimental.
+
+Preparación del material vegetal
+
+Se utilizaron semillas de Soya (Glycine max) previamente seleccionadas de manera manual, considerando uniformidad en tamaño, forma y ausencia de daños físicos o fitosanitarios. Posteriormente, las semillas fueron distribuidas de acuerdo con los tratamientos establecidos en el diseño experimental.
+
+Tratamientos pregerminativos
+
+Se evaluaron cuatro tratamientos de escarificación:
+
+Tratamiento	Descripción
+T0	Control sin escarificación
+T1	Escarificación mecánica mediante lijado
+T2	Escarificación térmica con agua caliente
+T3	Escarificación química con agua oxigenada
+
+Procedimiento de los tratamientos
+
+T0: Control
+
+Las semillas no recibieron ningún tratamiento pregerminativo y fueron colocadas directamente en cada taper para su germinación.
+
+T1: Escarificación mecánica
+
+La escarificación mecánica se realizó mediante lijado manual de cada semilla utilizando papel lija de grano fino. El lijado se efectuó cuidadosamente sobre una zona de la cubierta seminal opuesta al embrión, hasta observar un ligero desgaste de la testa sin llegar a dañar las estructuras internas de la semilla. Este procedimiento tuvo como finalidad facilitar la absorción de agua y favorecer el inicio del proceso germinativo.
+
+T2: Escarificación térmica
+
+Las semillas fueron sumergidas en agua previamente calentada hasta ebullición. Posteriormente, se retiró el recipiente del fuego  y dejamos reposar por 5 minutos luego las semillas se sumerdieron las semillas en el agua caliente durante 2 minutos hasta alcanzar temperatura ambiente. Luego, las semillas fueron retiradas y colocadas en los recipientes con ayuda de una pinza.
+
+T3: Escarificación química
+
+Las semillas fueron sumergidas en una solución de agua oxigenada durante un tiempo determinado, con el propósito de modificar parcialmente la permeabilidad de la cubierta seminal y favorecer la imbibición. Finalizado el tratamiento, las semillas fueron enjuagadas con agua destilada y secadas superficialmente antes de la instalación del ensayo.
+
+Instalación del experimento
+
+Las semillas fueron colocadas en recipientes de germinación acondicionados con papel absorbente humedecido con agua destilada. Cada unidad experimental estuvo conformada por 25 semillas, distribuidas según el Diseño de Bloques Completamente al Azar (DBCA), con cuatro tratamientos y cuatro repeticiones.
+
+Las unidades experimentales fueron mantenidas bajo condiciones controladas cada estudiante llevo un bloque y registrar el número de semillas germinadas por día.
+
+Variables evaluadas
+
+A partir de los registros diarios de germinación se calcularon los siguientes índices fisiológicos:
+
+Variable	Código
+Semillas germinadas	GRS
+Germinabilidad	GRP
+Tiempo medio de germinación	MGT
+Índice de sincronización	SYN
+
+Además, se evaluó la longitud de radícula en cinco plántulas por tratamiento como indicador de vigor inicial.
+
+
+**Libreta de campo**
+
+<https://docs.google.com/spreadsheets/d/1jhF2lV6rksG_t3W5OkBvq6jgzAiZ78nCOap2Bf8QarQ/edit?gid=1844291628#gid=1844291628>
+
+![](images/WhatsApp%20Image%202026-05-01%20at%201.57.26%20PM.jpeg)

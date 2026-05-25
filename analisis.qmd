@@ -1,0 +1,574 @@
+---
+title: "Analisis"
+
+format:
+  html:
+    toc: true
+    toc-expand: true
+    toc-depth: 4
+    toc-location: left
+    number-sections: true
+    self-contained: true
+    embed-resources: true
+    code-fold: true
+    theme: cosmo
+    fig-align: center
+    fig-width: 8
+    fig-height: 5
+
+editor: visual
+
+editor_options:
+  chunk_output_type: inline
+
+execute:
+  warning: false
+  message: false
+  echo: true
+
+output-file: "ESM.html"
+---
+
+## Procesamiento y análisis de datos
+
+El análisis de los datos experimentales se realizó utilizando herramientas estadísticas en el entorno R, empleando el paquete **GerminaQuant**, el cual permite evaluar parámetros relacionados con la germinación de semillas de manera eficiente.
+
+Este software facilitó el procesamiento de los datos obtenidos en campo, permitiendo calcular estadísticas descriptivas, generar visualizaciones y analizar el comportamiento de la germinación bajo diferentes condiciones experimentales.
+
+## ¿Que es GerminaQuant?
+
+![](https://tse2.mm.bing.net/th/id/OIP.PRCdNxpDeVESDtx5rz8dKAHaHa?pid=Api&P=0&h=180){width="172"}
+
+GerminaQuant para R facilita enormemente el cálculo de índices de germinación mediante una aplicación web interactiva desarrollada en R. ¡La aplicación GerminaQuant es reactiva! Los resultados cambian instantáneamente a medida que los usuarios modifican las entradas. Las principales características de la aplicación permiten calcular los principales índices de germinación, realizar análisis estadísticos y graficar los resultados fácilmente .
+
+# Desarrollo
+
+Factor : Escarificacion
+
+**Variables**
+
+| Variable                        | Abreviatura | Unidades | Límites |
+|---------------------------------|-------------|----------|---------|
+| **Semillas germinadas**         | grs         | conteo   | —       |
+| **Germinabilidad**              | grp         | \%       | —       |
+| **Tiempo medio de germinación** | mgt         | tiempo   | —       |
+| **Índice de sincronización**    | syn         | —        | —       |
+
+
+# Project Setup
+
+```{r}
+#| label:  setup
+
+source('https://inkaverse.com/setup.r')
+```
+
+# Cargar librerias
+
+```{r}
+library(GerminaR)
+library(tidyverse)
+library(googlesheets4)
+library(knitr)
+library(ggplot2)
+```
+
+
+# Data import y Convertir factor y variables 
+
+```{r}
+gs <- "https://docs.google.com/spreadsheets/d/1vBehDkjGwMTc5y_v-58ZoiBilDzP7uMSFma9sQkysrE/edit?gid=1005070969#gid=1005070969" %>% 
+  as_sheets_id()
+
+fb <- gs %>% 
+  range_read(ss = .,sheet = "fb")
+
+fb <- gs %>% 
+  range_read(ss = .,sheet = "fb") %>% 
+  mutate(across(1:block, ~as.factor(.)))
+
+str(fb)
+
+```
+
+# VISUALIZAR BASE DE DATOS
+
+```{r}
+fb %>% 
+  head(10) %>% 
+  kable(caption = "https://docs.google.com/spreadsheets/d/1vBehDkjGwMTc5y_v-58ZoiBilDzP7uMSFma9sQkysrE/edit?gid=1005070969#gid=1005070969")
+```
+
+# CÁLCULULO ÍNDICES DE GERMINACIÓN
+
+```{r}
+gsm <- ger_summary(
+  factors = c("block", "escarificacion"),
+  SeedN = "seeds",
+  evalName = "ger_",
+  cumulative = TRUE,
+  data = fb
+)
+
+gsm %>% 
+  head(10) %>% 
+  mutate(across(where(is.numeric), ~round(., 2))) %>% 
+  kable(caption = "Índices de germinación")
+
+```
+
+# ANÁLISIS PUNTUAL DE LA GERMINACIÓN
+
+
+| Variable                    | Código |
+| --------------------------- | ------ |
+| Semillas germinadas         | grs    |
+| Germinabilidad              | grp    |
+| Tiempo medio de germinación | mgt    |
+| Índice de sincronización    | syn    |
+
+## Semillas germinadas (grs)
+
+- Modelo
+
+$$grs = \mu + block + escarificacion + e$$
+
+-ANOVA
+
+```{r}
+library(lme4)
+
+md <- lmer(
+  grs ~ escarificacion + (1|block),
+  data = gsm
+)
+
+anova(md)
+
+library(car)
+
+Anova(md)
+summary(md)
+```
+
+```{r}
+
+# comparacion de medias
+
+library(emmeans)
+
+emm <- emmeans(md, ~ escarificacion)
+
+pairs(emm, adjust = "tukey")
+
+# letras de significancia
+
+library(multcomp)
+
+letras <- cld(
+  emm,
+  adjust = "tukey",
+  Letters = letters
+)
+
+letras
+
+# Graficos
+
+library(dplyr)
+
+letras_df <- letras %>%
+  as.data.frame() %>%
+  mutate(
+    escarificacion = factor(
+      escarificacion,
+      levels = unique(gsm$escarificacion)
+    ),
+    .group = trimws(.group)
+  )
+
+plot_smr(
+  letras_df,
+  x = "escarificacion",
+  y = "emmean",
+  error = "SE",
+  sig = ".group"
+) +
+  ggtitle("Germinabilidad (grp) de semillas de soya") +
+  
+  theme(
+    plot.title = element_text(
+      hjust = 0.5,   # centra el título
+      face = "bold",
+      size = 16
+    )
+  ) +
+  
+  scale_y_continuous(
+    breaks = seq(0, 100, by = 2)
+  )
+```
+
+## Germinabilidad (grs)
+
+# Modelo estadístico
+
+$$ grs = \mu + block + escarificacion + e $$
+- ANOVA
+
+```{r}
+#| label: anova-grp
+#| fig-align: center
+
+library(lme4)
+library(car)
+
+md_grp <- lmer(
+  grp ~ escarificacion + (1|block),
+  data = gsm
+)
+
+anova(md_grp)
+
+Anova(md_grp)
+summary(md)
+```
+
+# Comparación de Medias
+
+```{r}
+library(emmeans)
+
+emm_grp <- emmeans(
+  md_grp,
+  ~ escarificacion
+)
+
+pairs(
+  emm_grp,
+  adjust = "tukey"
+)
+
+# letras significancia
+
+library(multcomp)
+
+letras_grp <- cld(
+  emm_grp,
+  adjust = "tukey",
+  Letters = letters
+)
+
+letras_grp
+
+# limpieza dataframe
+
+library(dplyr)
+
+letras_grp_df <- letras_grp %>%
+  as.data.frame() %>%
+  mutate(
+    escarificacion = factor(
+      escarificacion,
+      levels = unique(fb$escarificacion)
+    ),
+
+    .group = trimws(.group)
+  )
+
+letras_grp_df
+```
+## Grafico
+
+```{r}
+
+#| fig-width: 9
+#| fig-height: 6
+#| fig-align: center
+
+library(inti)
+
+plot_smr(
+  letras_grp_df,
+  x = "escarificacion",
+  y = "emmean",
+  error = "SE",
+  sig = ".group"
+) +
+
+ggtitle("Semillas germinadas(grs) de semillas de soya") +
+
+scale_y_continuous(
+  limits = c(0, 105),
+  breaks = seq(0, 100, by = 10)
+) +
+
+theme_bw() +
+
+theme(
+  plot.title = element_text(
+    hjust = 0.5,
+    face = "bold",
+    size = 16
+  ),
+
+  axis.title = element_text(
+    face = "bold",
+    size = 13
+  ),
+
+  axis.text = element_text(
+    size = 11
+  )
+)
+
+
+
+```
+
+## Tiempo medio de germinación | mgt
+
+MODELO ESTADÍSTICO
+
+$$ mgt = \mu + block + escarificacion + e $$
+
+ANÁLISIS DE VARIANZA (ANOVA)
+
+```{r}
+#| label: anova-mgt
+#| fig-align: center
+
+library(lme4)
+library(car)
+
+md_mgt <- lmer(
+  mgt ~ escarificacion + (1|block),
+  data = gsm
+)
+
+anova(md_mgt)
+
+Anova(md_mgt)
+```
+
+COMPARACIÒN DE MEDIAS
+```{r}
+library(emmeans)
+
+emm_mgt <- emmeans(
+  md_mgt,
+  ~ escarificacion
+)
+
+pairs(
+  emm_mgt,
+  adjust = "tukey"
+)
+
+# LETRAS DE SIGNIFICANCIA
+library(multcomp)
+
+letras_mgt <- cld(
+  emm_mgt,
+  adjust = "tukey",
+  Letters = letters
+)
+
+letras_mgt
+
+# LIMPIEZA DE DATAFRAM
+library(dplyr)
+
+letras_mgt_df <- letras_mgt %>%
+  as.data.frame() %>%
+  mutate(
+    escarificacion = factor(
+      escarificacion,
+      levels = unique(fb$escarificacion)
+    ),
+
+    .group = trimws(.group)
+  )
+
+letras_mgt_df
+```
+GRÁFICO DEL TIEMPO MEDIO DE GERMINACIÓN
+
+```{r}
+#| fig-width: 9
+#| fig-height: 6
+#| fig-align: center
+
+library(inti)
+
+plot_smr(
+  letras_mgt_df,
+  x = "escarificacion",
+  y = "emmean",
+  error = "SE",
+  sig = ".group"
+) +
+
+ggtitle("Tiempo medio de germinación en semillas de soya") +
+
+scale_y_continuous(
+  breaks = seq(0, 6, by = 0.5)
+) +
+
+theme_bw() +
+
+theme(
+  plot.title = element_text(
+    hjust = 0.5,
+    face = "bold",
+    size = 16
+  ),
+
+  axis.title = element_text(
+    face = "bold",
+    size = 13
+  ),
+
+  axis.text = element_text(
+    size = 11
+  )
+)
+```
+
+## Índice de sincronización (syn)
+
+MODELO ESTADÍSTICO
+
+
+ANÁLISIS DE VARIANZA (ANOVA)
+
+
+```{r}
+#| label: anova-syn
+#| fig-align: center
+
+library(lme4)
+library(car)
+
+md_syn <- lmer(
+  syn ~ escarificacion + (1|block),
+  data = gsm
+)
+
+anova(md_syn)
+
+Anova(md_syn)
+```
+COMPARACIÓN DE MEDIAS
+
+```{r}
+library(emmeans)
+
+emm_syn <- emmeans(
+  md_syn,
+  ~ escarificacion
+)
+
+pairs(
+  emm_syn,
+  adjust = "tukey"
+)
+
+# LETRAS SIGNIFICANCIA
+
+library(multcomp)
+
+letras_syn <- cld(
+  emm_syn,
+  adjust = "tukey",
+  Letters = letters
+)
+
+letras_syn
+
+# LIMPIEZA DATAFRAME
+library(dplyr)
+
+letras_syn_df <- letras_syn %>%
+  as.data.frame() %>%
+  mutate(
+    escarificacion = factor(
+      escarificacion,
+      levels = unique(fb$escarificacion)
+    ),
+
+    .group = trimws(.group)
+  )
+
+letras_syn_df
+```
+
+GRÁFICO DEL ÍNDICE DE SINCRONIZACIÓN
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+
+library(inti)
+library(ggplot2)
+
+plot_smr(
+  letras_syn_df,
+  x = "escarificacion",
+  y = "emmean",
+  error = "SE",
+  sig = ".group"
+) +
+
+ggtitle("Índice de sincronización en semillas de soya") +
+
+scale_y_continuous(
+  breaks = seq(0, 3, by = 0.1)
+) +
+
+theme_gray() +
+
+theme(
+
+  plot.title = element_text(
+    hjust = 0.5,
+    face = "bold",
+    size = 20
+  ),
+
+  axis.title = element_text(
+    face = "bold",
+    size = 14
+  ),
+
+  axis.text = element_text(
+    size = 12
+  ),
+
+  legend.position = "top",
+
+  legend.title = element_text(
+    face = "bold",
+    size = 12
+  ),
+
+  legend.text = element_text(
+    size = 11
+  ),
+)
+```
+
+
+
+
+
+
+# PCA
+
+```{r}
+
+
+
+```
+

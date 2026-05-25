@@ -1,0 +1,15 @@
+---
+title: "Conclusiones"
+---
+
+::: {style="text-align: justify;"}
+1.  Los métodos de escarificación evaluados influyeron significativamente sobre la germinación de semillas de Soya (Glycine max), evidenciando diferencias en el comportamiento fisiológico de las semillas frente a cada tratamiento pregerminativo.
+
+2.  La escarificación mecánica mediante lijado favoreció una mayor germinabilidad y un establecimiento más uniforme de las semillas, debido a que facilitó la absorción de agua a través de la ruptura parcial de la cubierta seminal.
+
+3.  El tiempo medio de germinación (MGT) disminuyó en los tratamientos con escarificación en comparación con el tratamiento control, indicando que los métodos pregerminativos aceleraron el proceso germinativo y promovieron una emergencia más rápida de las plántulas.
+
+4.  El índice de sincronización (SYN) mostró diferencias entre tratamientos, lo que indica que la escarificación también influyó en la uniformidad temporal de la germinación. Los tratamientos con mejor sincronización presentaron una germinación más homogénea y concentrada en menor tiempo.
+
+5.  En términos agronómicos, los tratamientos de escarificación representan una alternativa eficiente para mejorar la calidad fisiológica y el establecimiento inicial de semillas de Soya, contribuyendo potencialmente a una emergencia más rápida y uniforme del cultivo.
+:::

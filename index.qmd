@@ -1,0 +1,86 @@
+---
+title: " "
+---
+
+::::::: {style="text-align: center;"}
+## UNIVERSIDAD NACIONAL TORIBIO RODRÍGUEZ DE MENDOZA DE AMAZONAS
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/95/Logo-2016-solo-ok.png){width="4.8cm"}
+
+## FACULTAD DE INGENIERÍA Y CIENCIAS AGRARIAS
+
+## ESCUELA PROFESIONAL DE INGENIERÍA AGRÓNOMA
+
+## Efecto de tres métodos de escarificación sobre la germinación de semillas de soya (Glycine max)
+
+<br>
+
+::: {style="text-align: center;"}
+# INTEGRANTES
+:::
+
+<br>
+
+| Integrante                      | \% de participación |
+|---------------------------------|---------------------|
+| Colunche Vásquez Josué Jhonatan | 100%                |
+| Chuquizuta Guelac Royber        | 100%                |
+| Maicelo Villanuva Luis Miguel   | 100%                |
+| Ramires Reap Neider             | 100%                |
+| Fernandez Rojas Jhonatan Dali   | 100%                |
+| Zagaceta Mendoza Gisella        | 100%                |
+::: {style="width: 60%; margin: auto; background-color: #f3f3f3; padding: 20px; border-radius: 12px; text-align: center; font-size: 18px;"}
+:::
+
+<br>
+
+::: {style="text-align: center;"}
+## DOCENTE
+
+Dr. Lozano Isla, Flavio
+
+<br>
+
+## CURSO
+
+Producción y Tecnología de Semillas
+
+<br>
+
+## CICLO ACADÉMICO
+
+2026 - I
+:::
+
+------------------------------------------------------------------------
+
+## Resumen del experimento
+
+::: {style="text-align: justify;"}
+El presente experimento tuvo como finalidad evaluar el efecto de diferentes métodos de escarificación sobre la germinación de semillas de Soya (Glycine max). Para ello, se empleó un Diseño de Bloques Completamente al Azar (DBCA) con cuatro tratamientos y cuatro repeticiones.
+
+Los tratamientos evaluados fueron:
+
+T0: Control (sin escarificación); T1: Escarificación mecánica mediante el lijado de la semilla; T2: Escarificación térmica mediante inmersión en agua caliente; T3: Escarificación química mediante agua oxigenada
+
+Cada unidad experimental estuvo conformada por 25 semillas, registrándose diariamente el número de semillas germinadas durante el periodo de evaluación.
+
+![](images/03.jfif){width="584"}
+
+------------------------------------------------------------------------
+
+## Libro de campo
+
+------------------------------------------------------------------------
+
+<https://docs.google.com/spreadsheets/d/1vBehDkjGwMTc5y_v-58ZoiBilDzP7uMSFma9sQkysrE/edit?gid=1005070969#gid=1005070969>
+
+## Etiquetas
+:::
+
+![](images/Captura%20de%20pantalla%202026-05-24%20180451.png){fig-align="center"}
+
+![](images/Captura%20de%20pantalla%202026-05-24%20180628.png){fig-align="center"}
+
+![](images/Captura%20de%20pantalla%202026-05-24%20180658.png){fig-align="center"}
+:::::::
